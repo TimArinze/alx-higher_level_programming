@@ -5,8 +5,7 @@ def element_at(my_list, idx):
         return None
     elif idx > length -1:
         return None
-    else:
-        for i, s in enumerate(my_list):
-            if i == idx:
-                return s
+    for i, s in enumerate(my_list):
+         if i == idx:
+            return s
 
