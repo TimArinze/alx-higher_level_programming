@@ -1,8 +1,4 @@
 #!/usr/bin/python3
 def no_c(my_string):
-    if my_string:
-        while 'c' in my_string:
-            my_string.remove(c)
-        while 'C' in my_string:
-            my_string.remove(C)
-        return (my_string)
+    change = {ord('c') : None, ord('C') : None}
+    return (my_string.translate(change))
