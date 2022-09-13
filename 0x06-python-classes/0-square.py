@@ -1,4 +1,8 @@
 #!/usr/bin/python3
+"""
+This module defines a Square class
+"""
 class Square:
-    def __init__(self, square):
-        self.square = square
+    """This class is a squeleton for Square
+    """
+    pass
