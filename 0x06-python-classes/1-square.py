@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """Working on oop with python"""
+
+
 class Square:
     """Class representing a square."""
 
