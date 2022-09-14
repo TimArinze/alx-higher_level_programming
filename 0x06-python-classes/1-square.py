@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""
-This module defines a square class and initialises its size """
+""" Working on oop with python"""
 class Square:
     """ Square as a shape."""
     def __init__(self, size):
