@@ -8,14 +8,18 @@ class Rectangle:
     """String representation"""
 
     def __init__(self, width=0, height=0):
-        """initializing a new Rectangle"""
+        """initializing a new Rectangle
+        Args:
+            width (int): The width of the new rectangle.
+            height (int): The height of the new rectangle
+        """
 
         self.width = width
         self.height = height
 
     @property
     def width(self):
-        """for the width"""
+        """Get/set for the width"""
 
         return self.__width
 
@@ -29,7 +33,7 @@ class Rectangle:
 
     @property
     def height(self):
-        """for the height"""
+        """Get/set for the height"""
 
         return self.__height
 
