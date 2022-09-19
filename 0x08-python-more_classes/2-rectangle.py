@@ -9,7 +9,11 @@ class Rectangle:
     """ Area and Perimeter """
 
     def __init__(self, width=0, height=0):
-        """Instantiation with optional width and height"""
+        """Instantiation with optional width and height
+        Args:
+            width (int): The width of the new rectangle.
+            height (int): The height of the new rectangle
+        """
 
         self.width = width
         self.height = height
