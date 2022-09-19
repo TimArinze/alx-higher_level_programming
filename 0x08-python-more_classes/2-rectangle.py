@@ -8,12 +8,14 @@ by: (based on 1-rectangle.py)
 class Rectangle:
     """ Area and Perimeter """
 
+
     def __init__(self, width=0, height=0):
         """Instantiation with optional width and height
         Args:
             width (int): The width of the new rectangle.
             height (int): The height of the new rectangle
         """
+
 
         self.width = width
         self.height = height
@@ -57,6 +59,6 @@ class Rectangle:
         """Perimeter of the rectangle"""
         if self.width and self.height == 0:
             return 0
-        else:
-            return (self.width + self.height) * 2
+
+        return (self.width + self.height) * 2
 
