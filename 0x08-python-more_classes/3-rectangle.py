@@ -44,23 +44,23 @@ class Rectangle:
     def area(self):
         """area"""
 
-        return self.width * self.height
+        return self.__width * self.__height
 
     def perimeter(self):
         """perimeter"""
 
-        if self.width and self.height == 0:
+        if self.__width and self.__height == 0:
             return 0
-        return (self.width + self.height) * 2
+        return (self.__width + self.__height) * 2
 
     def __str__(self):
         """str"""
 
         total = ""
-        if self.width and self.height == 0:
+        if self.__width and self.__height == 0:
             return total
-        for i in range(self.height):
-            total += "#" * self.width
-            if i != self.height - 1:
+        for i in range(self.__height):
+            total += "#" * self.__width
+            if i != self.__height - 1:
                 total += "\n"
         return total
