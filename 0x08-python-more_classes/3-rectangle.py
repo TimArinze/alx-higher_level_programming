@@ -8,6 +8,8 @@ class Rectangle:
     """String representation"""
 
     def __init__(self, width=0, height=0):
+        """initializing a new Rectangle"""
+
         self.width = width
         self.height = height
 
