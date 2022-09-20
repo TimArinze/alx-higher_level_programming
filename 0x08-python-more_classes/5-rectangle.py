@@ -22,6 +22,7 @@ class Rectangle:
             if i != self.__height - 1:
                 total += "\n"
         return total
+
     def __repr__(self):
         """Representation"""
         return "Rectangle({:d}, {:d}).format(self.__width, self.height)"
@@ -55,5 +56,3 @@ class Rectangle:
         elif value < 0:
             raise ValueError("height must be >= 0")
         self.__height = value
-
-
