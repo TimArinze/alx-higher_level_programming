@@ -17,6 +17,17 @@ class Rectangle:
         self.width = width
         self.height = height
 
+    def __str__(self):
+        """__str__"""
+        total = ""
+        if self.__width and self.__height == 0:
+            return total
+        for i in range(self.__height):
+            total += ("#" * self.__width)
+            if i != self.__height - 1:
+                total += "\n"
+            return total
+
     @property
     def width(self):
         """Get/set for the width"""
@@ -52,15 +63,3 @@ class Rectangle:
         if self.__width and self.__height == 0:
             return 0
         return (self.__width + self.__height) * 2
-
-    def __str__(self):
-        """str"""
-
-        total = ""
-        if self.__width and self.__height == 0:
-            return total
-        for i in range(self.__height):
-            total += ("#" * self.__width)
-            if i != (self.__height - 1):
-                total += "\n"
-        return total
