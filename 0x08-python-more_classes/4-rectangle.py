@@ -8,12 +8,18 @@ class Rectangle:
     """ Eval is magic """
 
     def __init__(self, width=0, height=0):
+        """Initialize a new Rectangle.
+        Args:
+            width (int): The width of the new rectangle
+            height (int): The height of the new rectangle.
+        """
         self.width = width
         self.height = height
 
     def __str__(self):
+        """ Return the perimeter of the rectangle."""
         total = ""
-        if self.__width or self.__height == 0:
+        if self.__width and self.__height == 0:
             return total
         for i in range(self.__height):
             total += ("#" * self.__width)
@@ -22,10 +28,12 @@ class Rectangle:
         return total
 
     def __repr__(self):
+        """Return the string representation of the Rectangle."""
         return "Rectangle({:d}, {:d})".format(self.__width, self.__height)
 
     @property
     def width(self):
+        """Get/set the width of the Rectangle"""
         return self.__width
 
     @width.setter
@@ -38,6 +46,7 @@ class Rectangle:
 
     @property
     def height(self):
+        """Get/set the height of the Rectangle."""
         return self.__height
 
     @height.setter
@@ -49,9 +58,11 @@ class Rectangle:
         self.__height = value
 
     def area(self):
+        """Return the area of the Rectangle."""
         return self.__width * self.__height
 
     def perimeter(self):
-        if self.__width or self.__height == 0:
+        """Return the perimeter of the rectangle."""
+        if self.__width and self.__height == 0:
             return 0
         return (self.__width + self.__height) * 2
