@@ -4,7 +4,7 @@ a class Rectangle that defines a rectangle
 """
 
 
-class Rectangle:
+class Rectangle():
     """String representation"""
 
     def __init__(self, width=0, height=0):
@@ -20,13 +20,14 @@ class Rectangle:
     def __str__(self):
         """__str__"""
         total = ""
-        if self.__width and self.__height == 0:
+        if (self.width and self.height == 0):
             return total
-        for i in range(self.__height):
-            total += ("#" * self.__width)
-            if i != self.__height - 1:
+
+        for i in range(self.height):
+            total += ("#" * self.width)
+            if i != self.height - 1:
                 total += "\n"
-            return total
+        return total
 
     @property
     def width(self):
@@ -62,4 +63,5 @@ class Rectangle:
         """perimeter"""
         if self.__width and self.__height == 0:
             return 0
+
         return (self.__width + self.__height) * 2
