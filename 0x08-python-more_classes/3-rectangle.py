@@ -20,12 +20,12 @@ class Rectangle():
     def __str__(self):
         """__str__"""
         total = ""
-        if (self.width and self.height == 0):
+        if self.__width == 0 or self.__height == 0:
             return total
 
-        for i in range(self.height):
-            total += ("#" * self.width)
-            if i != self.height - 1:
+        for i in range(self.__height):
+            total += ("#" * self.__width)
+            if i != self.__height - 1:
                 total += "\n"
         return total
 
