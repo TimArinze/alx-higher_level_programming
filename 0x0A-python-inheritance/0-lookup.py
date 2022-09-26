@@ -1,3 +1,5 @@
 #!/usr/bin/python3
 def lookup(obj):
-    return dir({object})
+    """function that returns the list of available attr and method"""
+
+    return dir(lookup)
