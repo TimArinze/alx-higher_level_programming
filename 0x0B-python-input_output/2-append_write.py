@@ -8,6 +8,6 @@ of a text file and returns the number of characters added
 def append_write(filename="", text=""):
     """ APPEND TO A FILE """
 
-    with open(filename, 'r+', encoding="utf-8") as f:
-        x = f.append(text)
+    with open(filename, 'a', encoding="utf-8") as f:
+        x = f.write(text)
     return x
