@@ -8,6 +8,5 @@ def load_from_json_file(filename):
     """Create object from a JSON file"""
 
     import json
-    from io import StringIO
     with open(filename, "r") as f:
-        json.load(StringIO(f))
+        json.load(f)
