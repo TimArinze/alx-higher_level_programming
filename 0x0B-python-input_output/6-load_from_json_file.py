@@ -10,4 +10,4 @@ def load_from_json_file(filename):
     import json
     from io import StringIO
     with open(filename, "r") as f:
-        json.loads(StringIO(f))
+        json.load(StringIO(f))
