@@ -9,4 +9,5 @@ def from_json_string(my_str):
     """From JSON string to Object"""
 
     import json
-    return json.load(my_str)
+    from io import StringIO
+    return json.load(StringIO(my_str))
