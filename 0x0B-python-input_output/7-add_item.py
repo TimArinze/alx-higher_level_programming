@@ -15,6 +15,6 @@ args = sys.argv
 file_name = "add_item.json"
 my_list = args[1:]
 
-with open(file_name, "a+") as f:
+with open(file_name, "w+") as f:
     save_to_json_file(my_list, file_name)
     load_from_json_file(file_name)
