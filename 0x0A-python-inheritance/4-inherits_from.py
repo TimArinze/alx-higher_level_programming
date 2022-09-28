@@ -8,4 +8,5 @@ of a class that inherited from the specified class
 def inherits_from(obj, a_class):
     """ Only sub class of"""
 
-    return type(obj) != a_class
+    sub_class = obj.__class__
+    return issubclass(sub_class, a_class)
