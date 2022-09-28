@@ -9,5 +9,4 @@ for JSON serialization of an object
 def class_to_json(obj):
     """Class to JSON"""
 
-    import json
-    return json.dumps(obj)
+    return obj.__dict__
