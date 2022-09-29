@@ -15,5 +15,5 @@ class Student:
 
     def to_json(self, obj):
         """retrieves dictionary representation"""
-        obj = Student(first_name, last_name, age)
+        obj = Student(self.first_name, self.last_name, self.age)
         return obj.__dict__
