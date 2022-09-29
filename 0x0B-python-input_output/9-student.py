@@ -13,7 +13,6 @@ class Student:
         self.last_name = last_name
         self.age = age
 
-    def to_json(self, obj):
+    def to_json(self):
         """retrieves dictionary representation"""
-        obj = Student(self.first_name, self.last_name, self.age)
-        return obj.__dict__
+        return self.__dict__
