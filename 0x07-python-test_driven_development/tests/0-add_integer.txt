@@ -39,3 +39,7 @@ Checking for int with string:
 Checking for float overflow:
 	>>> add_integer(2, 2e308)
 	inf
+
+Checking for float "nan":
+	>>> add_integer(2, float("nan"))
+	nan
