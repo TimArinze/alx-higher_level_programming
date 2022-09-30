@@ -9,10 +9,13 @@ def add_integer(a, b=98):
 
     if type(a) != int and type(a) != float:
         raise TypeError("a must be integer")
-    elif type(b) != int and type(b) != float:
+    if type(b) != int and type(b) != float:
         raise TypeError("b must be integer")
-    elif type(a) == float:
+    if type(a) == float:
         a = int(a)
-    elif type(b) == float:
+    if type(b) == float:
         b = int(b)
     return a + b
+
+import doctest
+doctest.testfile("tests/0-add_integer.txt")
