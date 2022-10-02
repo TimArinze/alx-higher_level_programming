@@ -12,8 +12,8 @@ class Square:
 
     @property
     def size(self):
-         """getter and setter"""
-         return self.__size
+        """getter and setter"""
+        return self.__size
 
     @size.setter
     def size(self, value):
@@ -40,15 +40,15 @@ class Square:
 
     @property
     def position(self):
-         """getter and setter"""
-         return self.__position
+        """getter and setter"""
+        return self.__position
 
     @position.setter
     def position(self, value):
-        if type(value) is not tuple:
+        if type(value) != tuple:
             raise TypeError("position must be a tuple of 2 positive integers")
 
-        elif len(value) is not 2:
+        elif len(value) != 2:
             raise TypeError("position must be a tuple of 2 positive integers")
 
         elif type(value[0]) != int or type(value[1]) != int:
@@ -56,6 +56,4 @@ class Square:
 
         elif value[0] < 0 or value[1] < 0:
             raise TypeError("position must be a tuple of 2 positive integers")
-
-        else:
-            self.__position = value
+        self.__position = value
