@@ -22,7 +22,22 @@ class Square:
         elif value < 0:
             raise ValueError("size must be >= 0")
         self.__size = value
-    
+
+    def area(self):
+        """Area"""
+        return self.__size ** 2
+
+    def my_print(self):
+        """method that print in #"""
+        if self.__size == 0:
+            print()
+        else:
+            for k in range(self.__position[1]):
+                print()
+            for i in range(self.__size):
+                print(" " * self.__position[0], end="")
+                print("#" * self.__size)
+
     @property
     def position(self):
          """getter and setter"""
@@ -30,27 +45,17 @@ class Square:
 
     @position.setter
     def position(self, value):
-        if type(value) != tuple:
+        if type(value) is not tuple:
             raise TypeError("position must be a tuple of 2 positive integers")
-        elif len(value) != 2:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        elif type(value[0]) != int and type(value[1]) != int:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        elif value[0] < 0 and value[1] < 0:
-            raise TypeError("position must be a tuple of 2 positive integers")
-        self.__position = value
 
-    def area(self):
-        """Area"""
-        return self.size ** 2
+        elif len(value) is not 2:
+            raise TypeError("position must be a tuple of 2 positive integers")
 
-    def my_print(self):
-        """method that print in #"""
-        if self.size == 0:
-            print()
+        elif type(value[0]) != int or type(value[1]) != int:
+            raise TypeError("position must be a tuple of 2 positive integers")
+
+        elif value[0] < 0 or value[1] < 0:
+            raise TypeError("position must be a tuple of 2 positive integers")
+
         else:
-            for k in range(self.position[1]):
-                print("")
-            for i in range(self.size):
-                print(" " * self.position[0], end="")
-                print("#" * self.size)
+            self.__position = value
