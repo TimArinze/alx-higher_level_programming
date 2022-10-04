@@ -6,6 +6,7 @@ And now, the Square!
 
 from models.rectangle import Rectangle
 
+
 class Square(Rectangle):
     """A class Square that inherits from Rectangle"""
 
@@ -17,6 +18,7 @@ class Square(Rectangle):
     def size(self):
         """getter and setter"""
         return self.width
+
     @size.setter
     def size(self, value):
         self.width = value
@@ -24,7 +26,8 @@ class Square(Rectangle):
 
     def __str__(self):
         """__str__"""
-        return "[Square] ({}) {}/{} - {}".format(self.id, self.x, self.y, self.width)
+        return "[Square] ({}) {}/{} - {}\
+                ".format(self.id, self.x, self.y, self.width)
 
     def update(self, *args, **kwargs):
         """square update"""
