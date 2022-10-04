@@ -31,7 +31,21 @@ class Base:
             list_dic = list_dictionaries
         return json.dumps(list_dic)
 
-    def save_to_file(self, list_objs):
+    @classmethod
+    def save_to_file(cls, list_objs):
         """JSON string to file"""
-        with open("{}.json".format(self), "w") as outfile:
-            json.dump(list_objs, outfile)
+        filename = cls.__name__ + ".json"
+        list_o = []
+        if list_dictionaries is not None:
+            for i in list_dictionaries:
+                list_o.append(i)
+
+        with open(filename, "w") as outfile:
+            outfile.write(list_o)
+
+    @staticmethod
+    def from_json_string(json_string):
+        """JSON string to dictionary"""
+        if json_string is None:
+            return "[]"
+        return json.loads(json_string)
