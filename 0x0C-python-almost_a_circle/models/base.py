@@ -25,7 +25,7 @@ class Base:
     def to_json_string(list_dictionaries):
         """Dictionary to JSON string"""
         if list_dictionaries is None:
-            list_dic = "[]"
+            list_dic = []
         else:
             list_dic = list_dictionaries
         return json.dumps(list_dic)
