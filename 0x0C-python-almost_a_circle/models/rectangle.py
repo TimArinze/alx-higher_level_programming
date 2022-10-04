@@ -6,6 +6,7 @@ class Rectangle that inherits from Base
 
 from models.base import Base
 
+
 class Rectangle(Base):
     """ First Rectangle """
 
@@ -16,7 +17,6 @@ class Rectangle(Base):
         self.height = height
         self.x = x
         self.y = y
-
 
     @property
     def width(self):
@@ -85,7 +85,8 @@ class Rectangle(Base):
 
     def __str__(self):
         """method that returns ..."""
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.__x, self.__y, self.__width, self.__height)
+        string = "[Rectangle] ({}) {}/{} - {}/{}"
+        return string.format(self.id, self.x, self.y, self.width, self.height)
 
     def update(self, *args, **kwargs):
         """Using args"""
