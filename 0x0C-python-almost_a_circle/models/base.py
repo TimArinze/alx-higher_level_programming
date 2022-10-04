@@ -29,3 +29,8 @@ class Base:
         else:
             list_dic = list_dictionaries
         return json.dumps(list_dic)
+
+    def save_to_file(self, list_objs):
+        """JSON string to file"""
+        with open("{}.json".format(self), "w") as outfile:
+            json.dump(list_objs, outfile)
