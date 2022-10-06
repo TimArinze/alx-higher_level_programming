@@ -60,3 +60,17 @@ class Base:
             dummy = cls(2)
         dummy.update(**dictionary)
         return dummy
+
+    @classmethod
+    def load_from_file(cls):
+        """Files to instance"""
+        filename = cls.__name__ + ".json"
+        list_i = []
+        if filename is None:
+            return list_i
+        else:
+            with open(filename, 'r') as f:
+                list_i = cls.from_json_string(f.read())
+            for i in range(len(list_i)):
+                list_i[i] = cls.create(**list_i[i])
+            return list_i
