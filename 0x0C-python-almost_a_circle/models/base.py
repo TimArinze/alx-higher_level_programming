@@ -37,7 +37,7 @@ class Base:
         """JSON string to file"""
         filename = cls.__name__ + ".json"
         list_o = []
-        if list_objs is not None:
+        if list_objs != None:
             for i in list_objs:
                 list_o.append(cls.to_dictionary(i))
             with open(filename, 'w') as f:
@@ -49,3 +49,12 @@ class Base:
         if json_string is None:
             return []
         return json.loads(json_string)
+
+    @classmethod
+    def create(cls, **dictionary):
+        """Dictionary to Instance"""
+        if cls.__name__ == "Rectangle":
+            dummy = cls(2, 1)
+        elif cls.__name__ == "Square":
+            dummy = cls(2)
+        return dummy.update(**dictionary)
