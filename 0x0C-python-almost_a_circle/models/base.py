@@ -37,11 +37,12 @@ class Base:
         """JSON string to file"""
         filename = cls.__name__ + ".json"
         list_o = []
-        if list_objs != None:
+        if list_objs is not None:
             for i in list_objs:
                 list_o.append(cls.to_dictionary(i))
             with open(filename, 'w') as f:
-                return f.write(cls.to_json_string(list_o))
+                f.write(cls.to_json_string(list_o))
+        return filename
 
     @staticmethod
     def from_json_string(json_string):
