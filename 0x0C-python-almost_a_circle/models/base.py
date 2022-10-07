@@ -6,6 +6,7 @@ A base class
 """
 
 import json
+import csv
 
 
 class Base:
@@ -74,3 +75,29 @@ class Base:
         for i in range(len(list_i)):
             list_i[i] = cls.create(**list_i[i])
         return list_i
+
+    @classmethod
+    def save_to_file_csv(cls, list_objs):
+        """Save to csv file"""
+        filename = cls.__name__ + ".csv"
+        list_i = []
+        if list_objs is not None:
+            for line in list_objs:
+                list_i.append(cls.to_dictionary(line))
+            with open(filename, 'w') as f:
+                f.write(cls.to_json_string(list_i))
+
+    @classmethod
+    def load_from_file_csv(cls):
+        """load from csv file"""
+        filename = cls.__name__ + ".csv"
+        list_i = []
+        if filename is None:
+            return list_i
+        else:
+            with open(filename, 'r') as f:
+                list_i = cls.from_json_string(f.read())
+            for i in range(len(list_i)):
+                list_i[i] = cls.create(**list_i[i])
+            return list_i
+
