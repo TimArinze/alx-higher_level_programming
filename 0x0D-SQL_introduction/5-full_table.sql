@@ -2,6 +2,4 @@
 SELECT 
 	*
 FROM
-	INFORMATION_SCHEMA.COLUMNS
-WHERE
-	TABLE_NAME = 'first_name';
+	'first_table'
