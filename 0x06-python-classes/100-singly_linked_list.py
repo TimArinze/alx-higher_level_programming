@@ -69,8 +69,8 @@ class SinglyLinkedList:
                 NewNode.next_node = curr.next_node
                 curr.next_node = NewNode
 
-    def __repr__(self):
-        """string representation"""
+    def __str__(self):
+        """string"""
         values = []
         while self.__head:
             values.append(str(self.__head.data))
