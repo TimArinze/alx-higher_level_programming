@@ -19,10 +19,9 @@ class Node:
 
     @data.setter
     def data(self, value):
-        if type(value) != int:
+        if not isinstance(value, int):
             raise TypeError("data must be an integer")
-        else:
-            self.__data = value
+        self.__data = value
 
     @property
     def next_node(self):
@@ -32,10 +31,9 @@ class Node:
     @next_node.setter
     def next_node(self, value):
         """setter"""
-        if value is not None and type(value) is not Node:
+        if not isinstance(value, Node) and value is not None:
             raise TypeError("next_node must be a Node object")
-        else:
-            self.__next_node = value
+        self.__next_node = value
 
 
 """
@@ -54,25 +52,22 @@ class SinglyLinkedList:
         """insert in sorted order"""
         NewNode = Node(value)
         if self.__head is None:
-            NewNode.next_node = None
             self.__head = NewNode
-        elif value < self.__head.data:
-            NewNode.next = self.__head
+        elif self.__head.data > value:
+            NewNode.next_node = self.__head
             self.__head = NewNode
         else:
             curr = self.__head
             while (curr.next_node is not None and value > curr.next_node.data):
                 curr = curr.next_node
-            if curr.next_node is None:
-                curr.next_node = NewNode
-            else:
-                NewNode.next_node = curr.next_node
-                curr.next_node = NewNode
+            NewNode.next_node = curr.next_node
+            curr.next_node = NewNode
 
-    def __str__(self):
-        """string"""
+    def __repr__(self):
+        """string representation"""
         values = []
-        while self.__head:
-            values.append(str(self.__head.data))
-            self.__head = self.__head.next_node
+        singlylist = self.__head
+        while singlylist is not None:
+            values.append(str(singlylist.data))
+            singlylist = singlylist.next_node
         return ('\n'.join(values))
