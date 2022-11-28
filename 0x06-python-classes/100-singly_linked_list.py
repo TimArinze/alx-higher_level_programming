@@ -31,10 +31,12 @@ class Node:
 
     @next_node.setter
     def next_node(self, value):
-        if value != None and type(value) != Node:
+        """setter"""
+        if value is not None and type(value) is not Node:
             raise TypeError("next_node must be a Node object")
         else:
             self.__next_node = value
+
 
 """
 A class SinglyLinkedList that defines a singly linked list
@@ -51,7 +53,7 @@ class SinglyLinkedList:
     def sorted_insert(self, value):
         """insert in sorted order"""
         NewNode = Node(value)
-        if self.__head == None:
+        if self.__head is None:
             NewNode.next_node = None
             self.__head = NewNode
         elif value < self.__head.data:
@@ -59,13 +61,14 @@ class SinglyLinkedList:
             self.__head = NewNode
         else:
             curr = self.__head
-            while (curr.next_node != None and value > curr.next_node.data):
+            while (curr.next_node is not None and value > curr.next_node.data):
                 curr = curr.next_node
-            if curr.next_node == None:
+            if curr.next_node is None:
                 curr.next_node = NewNode
             else:
                 NewNode.next_node = curr.next_node
                 curr.next_node = NewNode
+
     def __repr__(self):
         """string representation"""
         values = []
