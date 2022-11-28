@@ -3,7 +3,6 @@
 Compare2Square
 """
 
-
 class Square:
     """ A class that defines a square"""
 
