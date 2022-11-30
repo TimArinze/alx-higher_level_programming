@@ -15,7 +15,9 @@ if (args.length < 4) {
       arr.push(num);
     }
   }
-  arr.sort();
+  arr.sort(function (a, b) {
+    return a - b;
+  });
   arr.reverse();
   console.log(arr[1]);
 }
