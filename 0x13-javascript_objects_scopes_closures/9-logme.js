@@ -4,6 +4,6 @@
 
 let callCount = -1;
 exports.logMe = function (item) {
-	callCount += 1;
-	console.log(callCount + ': ' + item);
-}
+  callCount += 1;
+  console.log(callCount + ': ' + item);
+};
