@@ -1,8 +1,10 @@
 #!/usr/bin/python3
+
 import sys
 import MySQLdb
 
-db = MySQLdb.connect(host="localhost", user="root", passwd=sys.argv[2], port=3306, db = "hbtn_0e_0_usa")
+db = MySQLdb.connect(host="localhost", user="root", passwd=sys.argv[2],
+                     port=3306, db="hbtn_0e_0_usa")
 
 if __name__ == "__main__":
     cur = db.cursor()
