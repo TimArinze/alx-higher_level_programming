@@ -1,9 +1,9 @@
 #!/usr/bin/python3
+
 import sys
 import MySQLdb
 
-db = MySQLdb.connect(host="localhost", user="root",
-                     passwd="root", port=3306, db="hbtn_0e_0_usa")
+db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
 
 if __name__ == "__main__":
     cur = db.cursor()
@@ -12,6 +12,6 @@ if __name__ == "__main__":
     for row in query_rows:
         if row[1][0] == "N":
             print(row)
-
 cur.close()
 db.close()
+
