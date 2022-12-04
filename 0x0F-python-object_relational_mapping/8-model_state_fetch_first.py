@@ -20,6 +20,8 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
 
     session = Session()
+    if State() is None:
+        print("")
     for state in session.query(State).order_by(State.id).filter(State.id == 1):
         # HERE: no sql query, only objects
         print("{}: {}".format(state.id, state.name))
