@@ -1,6 +1,6 @@
 #!/usr/bin/python3
-"""a script that lists all State objects from the database hbtn_0e_6_usa
-using sqlalchemy
+"""a script that lists all State with 'a' objects from the database
+hbtn_0e_6_usa using sqlalchemy
 """
 
 
