@@ -20,10 +20,10 @@ if __name__ == "__main__":
     Session = sessionmaker(bind=engine)
     session = Session()
 
-    ins = State.__table__.insert().values(id = 6, name = "Louisiana")
-    conn = engine.connect()
-    result = conn.execute(ins)
-    
+    new = State(name='Louisiana')
+    session.add(new)
+
+    session.commit()
     for state in session.query(State):
         if state.id == 6:
             print("{}".format(state.id))
