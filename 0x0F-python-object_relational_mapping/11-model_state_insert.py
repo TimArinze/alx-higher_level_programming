@@ -24,6 +24,4 @@ if __name__ == "__main__":
     session.add(new)
 
     session.commit()
-    for state in session.query(State):
-        if state.id == 6:
-            print("{}".format(state.id))
+    print("{}".format(new.id))
