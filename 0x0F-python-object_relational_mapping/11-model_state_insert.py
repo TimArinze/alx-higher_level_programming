@@ -18,11 +18,12 @@ if __name__ == "__main__":
                            sys.argv[3]), pool_pre_ping=True)
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
+    session = Session()
 
     ins = State.__table__.insert().values(id = 6, name = "Louisiana")
     conn = engine.connect()
     result = conn.execute(ins)
     
     for state in session.query(State):
-        if state.id is 6:
+        if state.id == 6:
             print("{}".format(state.id))
