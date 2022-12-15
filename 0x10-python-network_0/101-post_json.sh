@@ -1,3 +1,3 @@
 #!/bin/bash
 # cURL a JSON file
-curl -sd "$2" "$1"
+curl -sH "Content-Type: application/json" -d @$2 $1
