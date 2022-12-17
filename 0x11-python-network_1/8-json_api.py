@@ -9,11 +9,11 @@ from sys import argv
 
 if __name__ == "__main__":
     url = "http://0.0.0.0:5000/search_user"
-    if argv[1]:
+    if len(argv) == 2:
         letter = argv[1]
-    else:
+    elif len(argv) == 1:
         letter = ""
-    search = {q : letter}
+    search = {"q" : letter}
     req = requests.post(url, data=search)
     req = req.json()
     try:
