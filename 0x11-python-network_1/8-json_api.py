@@ -2,24 +2,20 @@
 """
 Search API
 """
-import json
 import requests
 from sys import argv
 
 
 if __name__ == "__main__":
     url = "http://0.0.0.0:5000/search_user"
-    if len(argv) == 2:
-        letter = argv[1]
-    elif len(argv) == 1:
-        letter = ""
-    search = {"q" : letter}
-    req = requests.post(url, data=search)
-    req = req.json()
+    letter = "" if len(argv) == 1 else argv[1]
+    payload = {"q" : letter}
+    req = requests.post(url, data=payload)
     try:
-        if req:
-            print("{[]} {}".format(req.get('id'), req.get('name')))
-        else:
+        response = req.json()
+        if response == {}:
             print("No result")
+        else:
+            print("{[]} {}".format(response.get('id'), response.get('name')))
     except:
         print("Not a valid JSON")
