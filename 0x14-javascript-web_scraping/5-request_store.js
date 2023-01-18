@@ -9,19 +9,19 @@ const fs = require('fs');
 const request = require('request');
 
 request.get(
-	MAIN_URL,
-	function (error, response, body) {
-		if (error) {
-			console.error(error);
-		}
-		fs.writeFile(
-			filename,
-			body,
-			function (err) {
-				if (err) {
-					return console.error(err);
-				}
-			}
-		);
-	}
+  MAIN_URL,
+  function (error, response, body) {
+    if (error) {
+      console.error(error);
+    }
+    fs.writeFile(
+      filename,
+      body,
+      function (err) {
+        if (err) {
+          return console.error(err);
+        }
+      }
+    );
+  }
 );
