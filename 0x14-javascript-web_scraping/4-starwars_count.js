@@ -8,7 +8,6 @@ const args = process.argv[2];
 const request = require('request');
 
 const MAIN_URL = args;
-const CHARACTER_URL = 'https://swapi-api.alx-tools.com/api/people/18/';
 let count = 0;
 
 request.get(
@@ -22,7 +21,7 @@ request.get(
       for (const [key, value] of Object.entries(outcome[a])) {
         if (key === 'characters') {
           for (let b = 0; b < value.length; b++) {
-            if (value[b] === CHARACTER_URL) {
+            if (value[b].endsWith('/18/')) {
               count += 1;
             }
           }
