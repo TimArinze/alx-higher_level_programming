@@ -17,17 +17,10 @@ request.get(
       console.error(error);
     }
     const outcome = JSON.parse(body).results;
-    for (let a = 0; a < outcome.length; a++) {
-      for (const [key, value] of Object.entries(outcome[a])) {
-        if (key === 'characters') {
-          for (let b = 0; b < value.length; b++) {
-            if (value[b].endsWith('/18/')) {
-              count += 1;
-            }
-          }
-        }
-      }
-    }
-    console.log(count);
+    const character_url = 'https://swapi-api.alx-tools.com/api/people/14/';
+    const mapped = outcome.map((episode) => episode.characters);
+    const joined = mapped.flat(1);
+    const filtered = joined.filter((character) => character === character_url);
+    console.log(filtered.length);
   }
-);
+)
