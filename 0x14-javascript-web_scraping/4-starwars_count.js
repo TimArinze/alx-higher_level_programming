@@ -17,7 +17,7 @@ request.get(
       console.error(error);
     }
     const outcome = JSON.parse(body).results;
-    const character_url = 'https://swapi-api.alx-tools.com/api/people/14/';
+    const character_url = 'https://swapi-api.alx-tools.com/api/people/18/';
     const mapped = outcome.map((episode) => episode.characters);
     const joined = mapped.flat(1);
     const filtered = joined.filter((character) => character === character_url);
