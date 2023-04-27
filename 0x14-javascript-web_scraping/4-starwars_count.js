@@ -14,13 +14,12 @@ request.get(
   MAIN_URL,
   function (error, response, body) {
     if (error) {
-      console.error(error);
+      console.log(error);
     }
-    const outcome = JSON.parse(body).results;
-    const character_url = 'https://swapi-api.alx-tools.com/api/people/18/';
-    const mapped = outcome.map((episode) => episode.characters);
-    const joined = mapped.flat(1);
-    const filtered = joined.filter((character) => character === character_url);
-    console.log(filtered.length);
+    const results = JSON.parse(body).results;
+    const num_c = results.reduce((num, movie) => {
+      return movie.characters.find(character => character.endsWith("18/"))
+      ? num + 1 : num;}, 0);
+    console.log(num_c);
   }
-)
+);
