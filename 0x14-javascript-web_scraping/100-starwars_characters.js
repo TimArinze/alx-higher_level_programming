@@ -8,22 +8,22 @@ const argv = process.argv[2];
 const request = require('request');
 
 const movieId = argv;
-const MAIN_URL = "https://swapi-api.alx-tools.com/api/"
+const MAIN_URL = 'https://swapi-api.alx-tools.com/api/';
 
 request.get(
-  MAIN_URL + "films/" + movieId,
+  MAIN_URL + 'films/' + movieId,
   function (error, response, body) {
     if (error) {
       console.log(error);
     }
     const results = JSON.parse(body).characters;
-    const character = results.map(people => {
+    results.map(people => {
       return (request.get(people,
         function (error, response, body) {
           if (!error) {
             console.log(JSON.parse(body).name);
-	  }
-	}));
-    })
+          }
+        }));
+    });
   }
 );
