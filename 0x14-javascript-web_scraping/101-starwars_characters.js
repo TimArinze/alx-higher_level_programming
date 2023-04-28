@@ -17,7 +17,7 @@ request.get(
       console.log(error);
     }
     const results = JSON.parse(body).characters;
-    results.forEach(people => {
+    results.map(people => {
       request.get(people,
         function (error, response, body) {
           if (!error) {
