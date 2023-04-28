@@ -16,8 +16,15 @@ request.get(
     }
     const outcome = JSON.parse(body);
     const users = outcome
-      .filter(complete => complete.completed == true);
-    
-    console.log(users);
+      .filter(task => task.completed == true);
+    const reduced = users.reduce((accumulator, user) => {
+      if (user.userId in accumulator) {
+        accumulator[user.userId] += 1;
+      } else {
+        accumulator[user.userId] = 1;
+      }
+      return accumulator;
+    }, {});
+    console.log(reduced);
   }
 );
