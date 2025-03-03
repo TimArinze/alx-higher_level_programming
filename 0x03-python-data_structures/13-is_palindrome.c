@@ -1,5 +1,6 @@
 #include "lists.h"
 #include <stdlib.h>
+#include <stdio.h>
 /**
  * is_palindrome - function that checks if a singly linked list is a palindrome
  * @head: Pointer to the head pointer
@@ -7,18 +8,22 @@
  */
 int is_palindrome(listint_t **head)
 {
-	listint_t *reversed;
+	listint_t *reversed, *curr;
 
-	if (*head == NULL)
+	if (*head == NULL || (*head)->next ==NULL)
 		return (1);
 
-	reversed = malloc(sizeof(listint_t));
-	reversed = reverselist(head);
-	while (*head != NULL)
+	curr = *head;
+	reversed = reverselistcopy(curr);
+	if (!reversed)
+		return (0);
+	while (reversed != NULL)
 	{
-		if ((*head)->n != reversed->n)
+		if (curr->n != reversed->n)
+		{
 			return (0);
-		*head = (*head)->next;
+		}
+		curr = curr->next;
 		reversed = reversed->next;
 	}
 	return (1);
@@ -29,24 +34,32 @@ int is_palindrome(listint_t **head)
  * @head: Pointer to head pointer
  * Return: Pointer to the reversed list
  */
-listint_t *reverselist(listint_t **head)
+listint_t *reverselistcopy(listint_t *head)
 {
-	listint_t *curr, *prev;
+	listint_t *curr, *prev = NULL, *new_node;
 
-	if ((*head) == NULL)
+	if ((head) == NULL)
 		return (NULL);
 
-	prev = *head;
-	*head = (*head)->next;
-	curr = *head;
-	prev->next = NULL;
-	while (*head != NULL)
+	curr = head;
+	new_node = NULL;
+	while (curr != NULL)
 	{
-		*head = (*head)->next;
-		curr->next = prev;
-		prev = curr;
-		curr = *head;
+		new_node = malloc(sizeof(listint_t));
+		if (new_node == NULL)
+		{
+			while (prev != NULL)
+			{
+				listint_t *temp = prev;
+				prev = prev->next;
+				free(temp);
+			}
+			return (NULL);
+		}
+		new_node->n = curr->n;
+		new_node->next = prev;
+		prev = new_node;
+		curr = curr->next;
 	}
-	*head = prev;
-	return (*head);
+	return (prev);
 }
